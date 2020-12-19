@@ -41,6 +41,12 @@ class App extends Component {
      isSignedIn : false
    }
   }
+  
+  componentDidMount () {
+    fetch('http://localhost:3000')
+     .then(response => response.json())
+     .then(console.log)
+  }
 
   // this function calculate the facedetect location in the image
 
