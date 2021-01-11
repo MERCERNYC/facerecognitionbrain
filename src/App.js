@@ -29,25 +29,28 @@ const particlesOptions = {
     }
   }
 
+const initialState = {
+  input: '',  
+  imageUrl: '',
+  box: {}, // a new object state that hold the bounding_box value
+  route: 'signin',
+  isSignedIn : false,
+  user: {
+  id: '',
+  name: '',
+  email: '',
+  entries: 0,
+  joined: ''
+  }
+}
+
 class App extends Component {
   
   constructor() {
    super();
-   this.state = {
-     input: '',  
-     imageUrl: '',
-     box: {}, // a new object state that hold the bounding_box value
-     route: 'signin',
-     isSignedIn : false,
-     user: {
-      id: '',
-      name: '',
-      email: '',
-      entries: 0,
-      joined: ''
-     }
-   }
-  }
+   this.state = initialState;
+  
+}
 
   loadUser = (data) => {
     this.setState({user: {
@@ -67,8 +70,10 @@ class App extends Component {
    const image = document.getElementById('inputimage');
    const width = Number(image.width);
    const height= Number(image.height);
+   
+   
    return {
-    leftCol: clarifaiFace.left_col * width,
+    leftCol: clarifaiFace.left_col * width, 
     topRow: clarifaiFace.top_row * height,
     rightCol: width - clarifaiFace.right_col * width,
     bottomRow: height - clarifaiFace.bottom_row * height,
@@ -87,31 +92,32 @@ class App extends Component {
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input})
     app.models
-    .predict('c0c0ac362b03416da06ab3fa36fb58e3',
-      this.state.input)
-    .then(response =>{
-      if (response) {
-        fetch('http://localhost3000/image', {
-          method: 'put',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            id: this.state.user.id
-          })
+    .predict(Clarifai.FACE_DETECT_MODEL,
+    this.state.input)
+    .then(response => {
+    console.log('Image received ', response)
+    if (response) {
+      fetch('http://localhost:3000/image', {
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          id: this.state.user.id
         })
-          .then(response => response.json())
-          .then(count => {
-            this.setState(Object.assign(this.state.user, { entries: count}))
-          })
-      }
-      this.displayFaceBox(this.calculateFaceLocation(response))
-    })
-    .catch(err => console.log(err));
+      })
+        .then(response => response.json())
+        .then(count => {
+          this.setState(Object.assign(this.state.user, { entries: count}))
+        })
+    }
+    this.displayFaceBox(this.calculateFaceLocation(response))
+  })
+  .catch(err => console.log(err));
 }
 
 
   onRouteChange = (route) => {
     if(route === 'signout'){
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
     } else if ( route === 'home') {
       this.setState({isSignedIn: true})
     }
