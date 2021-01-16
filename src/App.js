@@ -10,11 +10,6 @@ import Logo from './components/Logo/Logo';
 
 import { Component } from 'react';
 
-const Clarifai = require('clarifai');
-
-const app = new Clarifai.App({
-  apiKey: '1e46172a5ab54decb37d709996d11f0d'
- });
 
 const particlesOptions = {
   
@@ -107,10 +102,15 @@ class App extends Component {
   }
 
   onPictureSubmit = () => {
-    this.setState({imageUrl: this.state.input})
-    app.models
-    .predict(Clarifai.FACE_DETECT_MODEL,
-    this.state.input)
+    this.setState({imageUrl: this.state.input});
+    fetch('http://localhost:3000/imageurl', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        input: this.state.input
+      })
+    })
+    .then(response => response.json())
     .then(response => {
     console.log('Image received ', response)
     if (response) {
