@@ -11,18 +11,17 @@ import Logo from './components/Logo/Logo';
 import { Component } from 'react';
 
 
-const particlesOptions = {
-  
+const particlesOptions = { 
     particles: {
       number: {
       value: 200,
       density: {
-          enable: true,
-          value_area: 800
-        }
+        enable: true,
+        value_area: 800
       }
     }
   }
+}
 
 const initialState = {
   input: '',  
@@ -42,9 +41,8 @@ const initialState = {
 class App extends Component {
   
   constructor() {
-   super();
-   this.state = initialState;
-  
+    super();
+    this.state = initialState; 
 }
 
   loadUser = (data) => {
@@ -77,24 +75,9 @@ class App extends Component {
     return boxes;
   }
 
-  // calculateFaceLocation= (data) => {
-  //  const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-  //  const image = document.getElementById('inputimage');
-  //  const width = Number(image.width);
-  //  const height= Number(image.height);
-   
-  //  return {
-  //   leftCol: clarifaiFace.left_col * width, 
-  //   topRow: clarifaiFace.top_row * height,
-  //   rightCol: width - clarifaiFace.right_col * width,
-  //   bottomRow: height - clarifaiFace.bottom_row * height,
-  //  };
-  // };
-
 
   displayFaceBox = (box) => {
     this.setState({ boxes: box });
-
   }
 
   onInputChange = (event) => {
@@ -103,7 +86,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://murmuring-lowlands-94757.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -112,9 +95,9 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(response => {
-    console.log('Image received ', response)
+     console.log('Image received ', response)
     if (response) {
-      fetch('http://localhost:3000/image', {
+      fetch('https://murmuring-lowlands-94757.herokuapp.com/image', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
