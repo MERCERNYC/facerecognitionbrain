@@ -22,6 +22,4 @@ const FaceRecognition = ({ imageUrl, boxes }) => {
     );
 }
 
-//https://samples.clarifai.com/face-det.jpg
-
 export default FaceRecognition;
