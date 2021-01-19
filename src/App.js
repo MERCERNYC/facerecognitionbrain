@@ -86,7 +86,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://vast-ravine-51382.herokuapp.com//imageurl', {
+    fetch('https://vast-ravine-51382.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
