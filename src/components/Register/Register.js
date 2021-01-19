@@ -29,11 +29,11 @@ class Register extends React.Component {
     fetch('https://murmuring-lowlands-94757.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
+      body: console.log(JSON.stringify({
         email: this.state.email,
         password: this.state.password,
         name: this.state.name
-      })
+      }))
     })
       .then(response => response.json())
       .then(user => {
