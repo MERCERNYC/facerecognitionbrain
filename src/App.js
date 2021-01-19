@@ -86,7 +86,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('http://murmuring-lowlands-94757.herokuapp.com/imageurl', {
+    fetch('https://murmuring-lowlands-94757.herokuapp.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -97,7 +97,7 @@ class App extends Component {
     .then(response => {
      console.log('Image received ', response)
     if (response) {
-      fetch('http://murmuring-lowlands-94757.herokuapp.com/image', {
+      fetch('https://murmuring-lowlands-94757.herokuapp.com/image', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
