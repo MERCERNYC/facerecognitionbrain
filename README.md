@@ -7,6 +7,9 @@
 	</tr>
 </table>
 
+https://github.com/MERCERNYC/facerecognitionbrain/issues/1#issue-789341803
+
+
 ## Demo
 
-Here is a working live demo : [Demo](...)
+Here is a working live demo : [Demo]()
