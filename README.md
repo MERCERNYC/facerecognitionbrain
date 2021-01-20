@@ -2,7 +2,9 @@
 <table>
 	<tr>
 		<td>
-			Face Recognition Brain uses Clarifai API to detect face in an image. It helps to detect face in a picture provided by user through URL of image. User's rank gets upgraded everytime user detects image in a picture.
+			Face Recognition Brain uses Clarifai API which return probability scores on the likelihood that the image contains human faces. If human faces are detected, the model will also return the coordinate locations of those faces with a bounding box.
+			Please Login to pass in a text input with a publicly accessible URL. 
+
 		</td>
 	</tr>
 </table>
