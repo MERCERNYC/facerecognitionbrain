@@ -17,22 +17,22 @@ Here is a working live demo: [Demo](https://facerecognitionbrain10.herokuapp.com
 ## Technologies Used
 
 ## Front-End
-HTML5
-CSS3
-React.js
+- HTML5
+- CSS3
+- React.js
 
 ## NPM Packages
-Create-React-App
-Tachyons
-react-tilt
-particles.js
-Bcrypt
-Postgresql
-knex
-body parser
-cors
-express
+- Create-React-App
+- Tachyons
+- react-tilt
+- particles.js
+- bycrypt
+- Postgresql
+- knex
+- body parser
+- cors
+- express
 
 ## APIs
-Clarifai
+- Clarifai
 
