@@ -14,17 +14,25 @@
 
 Here is a working live demo: [Demo](https://facerecognitionbrain10.herokuapp.com/)
 
-## Stack
+## Technologies Used
 
-- React
-- Javascript
-- HTML & CSS
+## Front-End
+HTML5
+CSS3
+React.js
 
-- Node
-- Express
-- PostgreSQL
-- Heroku 
+## NPM Packages
+Create-React-App
+Tachyons
+react-tilt
+particles.js
+Bcrypt
+Postgresql
+knex
+body parser
+cors
+express
 
-## API
+## APIs
+Clarifai
 
-- Clarifai Face Detection API
