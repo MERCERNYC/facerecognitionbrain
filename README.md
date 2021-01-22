@@ -3,7 +3,7 @@
 <table>
 	<tr>
 		<td> Face Recognition Brain uses Clarifai API to detect   
-			human faces and return the coordinate locations of those faces with a bounding box. After signing in, enter any image url containing a face in the picture and the web app will highlight the face in the picture for you using an image recognition API. Also keeps a track of the number of faces checked by you and displays the number on your dashboard.
+			human faces and return the coordinate locations of those faces with a bounding box. After signing in, enter any image url containing  faces in the picture. Also the application keeps a track of the number of faces checked by you and displays the number on your dashboard.
 		</td>
 	</tr>
 </table>
